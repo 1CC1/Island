@@ -1,0 +1,40 @@
+fieldRows: 20
+fieldCols: 20
+cycleDuration: 1000 # millis
+organismsInitialQuantity:
+  "Bear": 3
+  "Boa": 3
+  "Eagle": 5
+  "Fox": 4
+  "Wolf": 4
+  "Boar": 5
+  "Buffalo": 2
+  "Caterpillar": 15
+  "Deer": 7
+  "Duck": 10
+  "Goat": 12
+  "Horse": 10
+  "Mouse": 20
+  "Rabbit": 16
+  "Sheep": 12
+  "Plant": 50
+stopIfAllAnimalsDead: True
+stopIfTimeIsOver: True # specified in gameDuration
+gameDuration: 60000 # millis
+organismsYounsQuantity:
+  "Bear": 3
+  "Boa": 3
+  "Eagle": 2
+  "Fox": 6
+  "Wolf": 6
+  "Boar": 5
+  "Buffalo": 1
+  "Caterpillar": 20
+  #"Deer": 7
+  "Duck": 10
+  "Goat": 12
+  "Horse": 10
+  "Mouse": 20
+  "Rabbit": 16
+  "Sheep": 12
+  "Plant": 50
