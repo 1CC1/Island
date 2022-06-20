@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Initializer {
-    public static final String INIT_FILE = System.getProperty("user.dir") + File.separator + "files" + File.separator + "init.yml";
+    private static final String INIT_FILE = System.getProperty("user.dir") + File.separator + "files" + File.separator + "init.yml";
 
     public Settings initialize() {
         Settings settings = null;

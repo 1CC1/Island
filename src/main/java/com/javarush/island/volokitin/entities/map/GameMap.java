@@ -1,5 +1,5 @@
 package com.javarush.island.volokitin.entities.map;
 
-public class GameMap<S, I extends Number> {
+public class GameMap {
     Cell[][] cells;
 }
