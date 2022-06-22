@@ -1,5 +1,5 @@
-fieldRows: 20
-fieldCols: 20
+mapRows: 20
+mapCols: 20
 cycleDuration: 1000 # millis
 organismsInitialQuantity:
   "Bear": 3
@@ -21,7 +21,7 @@ organismsInitialQuantity:
 stopIfAllAnimalsDead: True
 stopIfTimeIsOver: True # specified in gameDuration below
 gameDuration: 60000 # millis
-organismsYougnsQuantity:
+organismsYoungsQuantity:
   "Bear": 3
   "Boa": 3
   "Eagle": 2
@@ -279,3 +279,82 @@ chanceToGetEat:
     "Buffalo": 0
     "Duck": 0
     "Plant": 100
+organismsSpecifications:
+  "Wolf":
+    "weight": 50
+    "maxQuantity": 30
+    "speed": 3
+    "foodRequired": 8
+  "Boa":
+    "weight": 15
+    "maxQuantity": 30
+    "speed": 1
+    "foodRequired": 3
+  "Fox":
+    "weight": 8
+    "maxQuantity": 30
+    "speed": 2
+    "foodRequired": 2
+  "Bear":
+    "weight": 500
+    "maxQuantity": 5
+    "speed": 2
+    "foodRequired": 80
+  "Eagle":
+    "weight": 6
+    "maxQuantity": 20
+    "speed": 3
+    "foodRequired": 1
+  "Horse":
+    "weight": 400
+    "maxQuantity": 20
+    "speed": 4
+    "foodRequired": 60
+  "Deer":
+    "weight": 300
+    "maxQuantity": 20
+    "speed": 4
+    "foodRequired": 50
+  "Rabbit":
+    "weight": 2
+    "maxQuantity": 150
+    "speed": 2
+    "foodRequired": 0.45
+  "Mouse":
+    "weight": 0.05
+    "maxQuantity": 500
+    "speed": 1
+    "foodRequired": 0.01
+  "Goat":
+    "weight": 60
+    "maxQuantity": 140
+    "speed": 3
+    "foodRequired": 10
+  "Sheep":
+    "weight": 70
+    "maxQuantity": 140
+    "speed": 3
+    "foodRequired": 15
+  "Boar":
+    "weight": 400
+    "maxQuantity": 50
+    "speed": 2
+    "foodRequired": 50
+  "Buffalo":
+    "weight": 700
+    "maxQuantity": 10
+    "speed": 3
+    "foodRequired": 100
+  "Duck":
+    "weight": 1
+    "maxQuantity": 200
+    "speed": 4
+    "foodRequired": 0.15
+  "Caterpillar":
+    "weight": 0.01
+    "maxQuantity": 1000
+    "speed": 0
+    "foodRequired": 0
+  "Plant":
+    "weight": 1
+    "maxQuantity": 200

@@ -9,7 +9,7 @@ public class GameWorker extends Thread {
         this.game = game;
     }
 
-    @Override
+//    @Override
     public void run() {
         super.run();
     }
