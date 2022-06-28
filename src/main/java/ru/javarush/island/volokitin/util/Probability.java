@@ -10,4 +10,8 @@ public class Probability {
     public static int random(int from, int to) {
         return ThreadLocalRandom.current().nextInt(from, to);
     }
+
+    public static double random(double from, double to) {
+        return ThreadLocalRandom.current().nextDouble(from, to);
+    }
 }

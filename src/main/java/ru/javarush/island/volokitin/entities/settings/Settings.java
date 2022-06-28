@@ -2,7 +2,7 @@ package ru.javarush.island.volokitin.entities.settings;
 
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
-import ru.javarush.island.volokitin.entities.OrganismSpecifications;
+import ru.javarush.island.volokitin.entities.organisms.OrganismsCommonSpecs;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +22,7 @@ public class Settings {
     private int gameDuration;
     private Map<String, Integer> organismsYoungsQuantity;
     private Map<String, Map<String, Integer>> chanceToGetEat;
-    private Map<String, OrganismSpecifications> organismsSpecifications;
+    private Map<String, OrganismsCommonSpecs> organismsCommonSpecs;
 
     public static Settings get() {
         Settings settings = SETTINGS;
@@ -86,8 +86,12 @@ public class Settings {
         return chanceToGetEat;
     }
 
-    public Map<String, OrganismSpecifications> getOrganismsSpecifications() {
-        return organismsSpecifications;
+    public Map<String, OrganismsCommonSpecs> getOrganismsCommonSpecs() {
+        return this.organismsCommonSpecs;
+    }
+
+    public OrganismsCommonSpecs getOrganismCommonSpecsByType(String organismType) {
+        return (OrganismsCommonSpecs)this.organismsCommonSpecs.get(organismType);
     }
 
     @Override
@@ -102,7 +106,7 @@ public class Settings {
                 ", \ngameDuration=" + gameDuration +
                 ", \norganismsYoungsQuantity=" + organismsYoungsQuantity +
                 ", \nchanceToGetEat=" + chanceToGetEat +
-                ", \norganismsSpecifications=" + organismsSpecifications +
+                ", \norganismsCommonSpecs=" + organismsCommonSpecs +
                 '}';
     }
 }
