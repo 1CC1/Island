@@ -4,6 +4,7 @@ import ru.javarush.island.volokitin.entities.organisms.Organism;
 import ru.javarush.island.volokitin.entities.settings.Settings;
 import ru.javarush.island.volokitin.entities.world.Area;
 import ru.javarush.island.volokitin.entities.world.World;
+import ru.javarush.island.volokitin.factories.Factories;
 import ru.javarush.island.volokitin.util.Probability;
 
 import java.util.*;
@@ -29,7 +30,6 @@ public class WorldCreator {
 
     private Area createRandomArea() {
         Map<String, Set<Organism>> inhabitants = new HashMap<>();
-        OrganismFactory organismFactory = new OrganismFactory();
 
         for (Map.Entry<String, Integer> entry : Settings.get().getOrganismsInitialQuantity().entrySet()) {
             String organismType = entry.getKey();
@@ -38,7 +38,7 @@ public class WorldCreator {
             Set<Organism> organismSet = new HashSet<>();
             for (int i = 0; i < organismQuantity; i++) {
                 if (Probability.get(25)) {
-                    organismSet.add(organismFactory.createOrganismByType(organismType));
+                    organismSet.add(Factories.createOrganismByType(organismType));
                 }
             }
             inhabitants.put(organismType, organismSet);
