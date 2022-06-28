@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Area {
     private Map<String, Set<Organism>> inhabitants;
-    private List<Area> nearAreas;
+    private List<Area> nearestAreas;
 
     public Area(Map<String, Set<Organism>> inhabitants) {
         this.inhabitants = inhabitants;
@@ -18,15 +18,15 @@ public class Area {
         return inhabitants;
     }
 
-    public void setInhabitants(Map<String, Set<Organism>> inhabitants) {
-        this.inhabitants = inhabitants;
+//    public void setInhabitants(Map<String, Set<Organism>> inhabitants) {
+//        this.inhabitants = inhabitants;
+//    }
+
+    public List<Area> getNearestAreas() {
+        return nearestAreas;
     }
 
-    public List<Area> getNearAreas() {
-        return nearAreas;
-    }
-
-    public void setNearAreas(List<Area> nearAreas) {
-        this.nearAreas = nearAreas;
+    public void setNearestAreas(List<Area> nearestAreas) {
+        this.nearestAreas = nearestAreas;
     }
 }

@@ -5,8 +5,8 @@ public class OrganismsCommonSpecs {
     private String icon;
     private double maxWeight;
     private int maxQuantity;
-    private int speed;
-    private float foodRequired;
+    private int maxSpeed;
+    private float maxFoodRequired;
 
     public String getName() {
         return name;
@@ -40,31 +40,31 @@ public class OrganismsCommonSpecs {
         this.maxQuantity = maxQuantity;
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getMaxSpeed() {
+        return maxSpeed;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
     }
 
-    public float getFoodRequired() {
-        return foodRequired;
+    public float getMaxFoodRequired() {
+        return maxFoodRequired;
     }
 
-    public void setFoodRequired(float foodRequired) {
-        this.foodRequired = foodRequired;
+    public void setMaxFoodRequired(float maxFoodRequired) {
+        this.maxFoodRequired = maxFoodRequired;
     }
 
     public OrganismsCommonSpecs() {
     }
 
-    public OrganismsCommonSpecs(String name, String icon, double maxWeight, int maxQuantity, int speed, float foodRequired) {
+    public OrganismsCommonSpecs(String name, String icon, double maxWeight, int maxQuantity, int maxSpeed, float maxFoodRequired) {
         this.name = name;
         this.icon = icon;
         this.maxWeight = maxWeight;
         this.maxQuantity = maxQuantity;
-        this.speed = speed;
-        this.foodRequired = foodRequired;
+        this.maxSpeed = maxSpeed;
+        this.maxFoodRequired = maxFoodRequired;
     }
 }

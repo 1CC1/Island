@@ -49,5 +49,26 @@ public class WorldCreator {
 
     private void findNearestAreas(World world) {
         Area[][] areas = world.getAreas();
+
+        for (int row = 0; row < areas.length; row++) {
+            for (int col = 0; col < areas[row].length; col++) {
+                List<Area> nearestAreas = new ArrayList<>();
+
+                if (row > 0) {
+                    nearestAreas.add(areas[row - 1][col]);
+                }
+                if (col > 0) {
+                    nearestAreas.add(areas[row][col - 1]);
+                }
+                if (row < areas.length - 1) {
+                    nearestAreas.add(areas[row + 1][col]);
+                }
+                if (col < areas[row].length - 1) {
+                    nearestAreas.add(areas[row][col + 1]);
+                }
+
+                areas[row][col].setNearestAreas(nearestAreas);
+            }
+        }
     }
 }

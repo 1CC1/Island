@@ -285,106 +285,106 @@ organismsCommonSpecs:
     "icon": 🐺
     "maxWeight": 50
     "maxQuantity": 30
-    "speed": 3
-    "foodRequired": 8
+    "maxSpeed": 3
+    "maxFoodRequired": 8
   "Boa":
     "name": "Удав"
     "icon": 🐍
     "maxWeight": 15
     "maxQuantity": 30
-    "speed": 1
-    "foodRequired": 3
+    "maxSpeed": 1
+    "maxFoodRequired": 3
   "Fox":
     "name": "Лиса"
     "icon": 🦊
     "maxWeight": 8
     "maxQuantity": 30
-    "speed": 2
-    "foodRequired": 2
+    "maxSpeed": 2
+    "maxFoodRequired": 2
   "Bear":
     "name": "Медведь"
     "icon": 🐻
     "maxWeight": 500
     "maxQuantity": 5
-    "speed": 2
-    "foodRequired": 80
+    "maxSpeed": 2
+    "maxFoodRequired": 80
   "Eagle":
     "name": "Орел"
     "icon": 🦅
     "maxWeight": 6
     "maxQuantity": 20
-    "speed": 3
-    "foodRequired": 1
+    "maxSpeed": 3
+    "maxFoodRequired": 1
   "Horse":
     "name": "Лошадь"
     "icon": 🐎
     "maxWeight": 400
     "maxQuantity": 20
-    "speed": 4
-    "foodRequired": 60
+    "maxSpeed": 4
+    "maxFoodRequired": 60
   "Deer":
     "name": "Олень"
     "icon": 🦌
     "maxWeight": 300
     "maxQuantity": 20
-    "speed": 4
-    "foodRequired": 50
+    "maxSpeed": 4
+    "maxFoodRequired": 50
   "Rabbit":
     "name": "Кролик"
     "icon": 🐇
     "maxWeight": 2
     "maxQuantity": 150
-    "speed": 2
-    "foodRequired": 0.45
+    "maxSpeed": 2
+    "maxFoodRequired": 0.45
   "Mouse":
     "name": "Мышь"
     "icon": 🐁
     "maxWeight": 0.05
     "maxQuantity": 500
-    "speed": 1
-    "foodRequired": 0.01
+    "maxSpeed": 1
+    "maxFoodRequired": 0.01
   "Goat":
     "name": "Коза"
     "icon": 🐐
     "maxWeight": 60
     "maxQuantity": 140
-    "speed": 3
-    "foodRequired": 10
+    "maxSpeed": 3
+    "maxFoodRequired": 10
   "Sheep":
     "name": "Овца"
     "icon": 🐑
     "maxWeight": 70
     "maxQuantity": 140
-    "speed": 3
-    "foodRequired": 15
+    "maxSpeed": 3
+    "maxFoodRequired": 15
   "Boar":
     "name": "Кабан"
     "icon": 🐗
     "maxWeight": 400
     "maxQuantity": 50
-    "speed": 2
-    "foodRequired": 50
+    "maxSpeed": 2
+    "maxFoodRequired": 50
   "Buffalo":
     "name": "Буйвол"
     "icon": 🐃
     "maxWeight": 700
     "maxQuantity": 10
-    "speed": 3
-    "foodRequired": 100
+    "maxSpeed": 3
+    "maxFoodRequired": 100
   "Duck":
     "name": "Утка"
     "icon": 🦆
     "maxWeight": 1
     "maxQuantity": 200
-    "speed": 4
-    "foodRequired": 0.15
+    "maxSpeed": 4
+    "maxFoodRequired": 0.15
   "Caterpillar":
     "name": "Гусеница"
     "icon": 🐛
     "maxWeight": 0.01
     "maxQuantity": 1000
-    "speed": 0
-    "foodRequired": 0
+    "maxSpeed": 0
+    "maxFoodRequired": 0
   "Plant":
     "name": "Растение"
     "icon": 🌿
