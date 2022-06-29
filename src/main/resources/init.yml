@@ -1,5 +1,5 @@
-mapRows: 20
-mapCols: 20
+mapRows: 10
+mapCols: 10
 cycleDuration: 1000 # millis
 organismsInitialQuantity:
   "Wolf": 4

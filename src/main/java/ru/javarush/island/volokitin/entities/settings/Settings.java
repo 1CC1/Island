@@ -6,8 +6,10 @@ import ru.javarush.island.volokitin.entities.organisms.OrganismsCommonSpecs;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Settings {
     private static final String INIT_FILE = "init.yml";
@@ -23,6 +25,7 @@ public class Settings {
     private Map<String, Integer> organismsYoungsQuantity;
     private Map<String, Map<String, Integer>> chanceToGetEat;
     private Map<String, OrganismsCommonSpecs> organismsCommonSpecs;
+    private List<String> organismsTypes;
 
     public static Settings get() {
         Settings settings = SETTINGS;
@@ -45,6 +48,8 @@ public class Settings {
             if (Objects.nonNull(resource)) {
                 objectReader.readValue(resource.openStream());
             }
+
+            organismsTypes = organismsCommonSpecs.keySet().stream().collect(Collectors.toList());
         } catch (IOException e) {
             System.out.printf("Ошибка при чтении файла настроек init.yml: %s", e.toString());
         }
@@ -91,7 +96,7 @@ public class Settings {
     }
 
     public OrganismsCommonSpecs getOrganismCommonSpecsByType(String organismType) {
-        return (OrganismsCommonSpecs)this.organismsCommonSpecs.get(organismType);
+        return this.organismsCommonSpecs.get(organismType);
     }
 
     @Override

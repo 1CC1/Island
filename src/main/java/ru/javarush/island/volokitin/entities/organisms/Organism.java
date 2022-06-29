@@ -1,7 +1,7 @@
 package ru.javarush.island.volokitin.entities.organisms;
 
 import ru.javarush.island.volokitin.entities.settings.Settings;
-import ru.javarush.island.volokitin.util.Probability;
+import ru.javarush.island.volokitin.util.Randomizer;
 
 public abstract class Organism {
     private final String type = this.getClass().getSimpleName();
@@ -9,6 +9,6 @@ public abstract class Organism {
 
     protected Organism() {
         OrganismsCommonSpecs organismCommonSpecs = Settings.get().getOrganismCommonSpecsByType(this.type);
-        this.weight = Probability.random(organismCommonSpecs.getMaxWeight() / 2.0D, organismCommonSpecs.getMaxWeight());
+        this.weight = Randomizer.getRandom(organismCommonSpecs.getMaxWeight() / 2.0D, organismCommonSpecs.getMaxWeight());
     }
 }
