@@ -33,6 +33,10 @@ public class Area {
         this.nearestAreas = nearestAreas;
     }
 
+    public Lock getLock() {
+        return lock;
+    }
+
     @Override
     public String toString() {
         HashMap<String, Long> areaStatistics = new HashMap<>();
@@ -46,5 +50,9 @@ public class Area {
                 });
 
         return areaStatistics.toString();
+    }
+
+    public void addInhabitant(String organismType, Organism newPlant) {
+        inhabitants.get(organismType).add(newPlant);
     }
 }

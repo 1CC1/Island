@@ -11,6 +11,10 @@ public class Game {
         this.world = world;
     }
 
+    public World getWorld() {
+        return world;
+    }
+
     public void showStatistics() {
         Area[][] areas = world.getAreas();
         for (int i = 0; i < areas.length; i++) {

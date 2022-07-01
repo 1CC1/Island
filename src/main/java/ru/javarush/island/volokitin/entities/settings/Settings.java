@@ -22,24 +22,10 @@ public class Settings {
     private Boolean stopIfAllAnimalsDead;
     private Boolean stopIfTimeIsOver;
     private int gameDuration;
-    private Map<String, Integer> organismsYoungsQuantity;
+    private Map<String, Integer> organismsChildrenQuantity;
     private Map<String, Map<String, Integer>> chanceToGetEat;
     private Map<String, OrganismsCommonSpecs> organismsCommonSpecs;
     private List<String> organismsTypes;
-
-    public static Settings get() {
-        Settings settings = SETTINGS;
-
-        if (Objects.isNull(settings)) {
-            synchronized (Settings.class) {
-                if (Objects.isNull(settings = SETTINGS)) {
-                    settings = SETTINGS = new Settings();
-                }
-            }
-        }
-
-        return settings;
-    }
 
     private Settings() {
         try {
@@ -83,8 +69,8 @@ public class Settings {
         return gameDuration;
     }
 
-    public Map<String, Integer> getOrganismsYoungsQuantity() {
-        return organismsYoungsQuantity;
+    public Map<String, Integer> getOrganismsChildrenQuantity() {
+        return organismsChildrenQuantity;
     }
 
     public Map<String, Map<String, Integer>> getChanceToGetEat() {
@@ -95,23 +81,25 @@ public class Settings {
         return this.organismsCommonSpecs;
     }
 
-    public OrganismsCommonSpecs getOrganismCommonSpecsByType(String organismType) {
-        return this.organismsCommonSpecs.get(organismType);
+    public List<String> getOrganismsTypes() {
+        return organismsTypes;
     }
 
-    @Override
-    public String toString() {
-        return "Settings{" +
-                "\nmapRows=" + mapRows +
-                ", \nmapCols=" + mapCols +
-                ", \ncycleDuration=" + cycleDuration +
-                ", \norganismsInitialQuantity=" + organismsInitialQuantity +
-                ", \nstopIfAllAnimalsDead=" + stopIfAllAnimalsDead +
-                ", \nstopIfTimeIsOver=" + stopIfTimeIsOver +
-                ", \ngameDuration=" + gameDuration +
-                ", \norganismsYoungsQuantity=" + organismsYoungsQuantity +
-                ", \nchanceToGetEat=" + chanceToGetEat +
-                ", \norganismsCommonSpecs=" + organismsCommonSpecs +
-                '}';
+    public OrganismsCommonSpecs getOrganismCommonSpecsByType(String organismType) {
+        return organismsCommonSpecs.get(organismType);
+    }
+
+    public static Settings get() {
+        Settings settings = SETTINGS;
+
+        if (Objects.isNull(settings)) {
+            synchronized (Settings.class) {
+                if (Objects.isNull(settings = SETTINGS)) {
+                    settings = SETTINGS = new Settings();
+                }
+            }
+        }
+
+        return settings;
     }
 }

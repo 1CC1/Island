@@ -1,6 +1,9 @@
-mapRows: 10
-mapCols: 10
+mapRows: 1
+mapCols: 1
 cycleDuration: 1000 # millis
+stopIfAllAnimalsDead: True
+stopIfTimeIsOver: True # specified in gameDuration below
+gameDuration: 5000 # millis
 organismsInitialQuantity:
   "Wolf": 4
   "Bear": 3
@@ -18,10 +21,7 @@ organismsInitialQuantity:
   "Rabbit": 16
   "Sheep": 12
   "Plant": 50
-stopIfAllAnimalsDead: True
-stopIfTimeIsOver: True # specified in gameDuration below
-gameDuration: 60000 # millis
-organismsYoungsQuantity:
+organismsChildrenQuantity:
   "Wolf": 6
   "Bear": 3
   "Boa": 3
@@ -40,10 +40,10 @@ organismsYoungsQuantity:
   "Plant": 50
 chanceToGetEat:
   "Wolf":
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
     "Horse": 10
     "Deer": 15
     "Rabbit": 60
@@ -53,45 +53,45 @@ chanceToGetEat:
     "Boar": 15
     "Buffalo": 10
     "Duck": 40
-    "Caterpillar": 0
-    "Plant": 0
+#    "Caterpillar": 0
+#    "Plant": 0
   "Boa":
-    "Wolf": 0
+#    "Wolf": 0
     "Fox": 15
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
     "Rabbit": 20
     "Mouse": 40
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
     "Duck": 10
-    "Caterpillar": 0
-    "Plant": 0
+#    "Caterpillar": 0
+#    "Plant": 0
   "Fox":
-    "Wolf": 0
-    "Boa": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
     "Rabbit": 70
     "Mouse": 90
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
     "Duck": 60
     "Caterpillar": 40
-    "Plant": 0
+#    "Plant": 0
   "Bear":
-    "Wolf": 0
+#    "Wolf": 0
     "Boa": 80
-    "Fox": 0
-    "Eagle": 0
+#    "Fox": 0
+#    "Eagle": 0
     "Horse": 40
     "Deer": 80
     "Rabbit": 80
@@ -101,183 +101,183 @@ chanceToGetEat:
     "Boar": 50
     "Buffalo": 20
     "Duck": 10
-    "Caterpillar": 0
-    "Plant": 0
+#    "Caterpillar": 0
+#    "Plant": 0
   "Eagle":
-    "Wolf": 0
-    "Boa": 0
+#    "Wolf": 0
+#    "Boa": 0
     "Fox": 10
-    "Bear": 0
-    "Horse": 0
-    "Deer": 0
+#    "Bear": 0
+#    "Horse": 0
+#    "Deer": 0
     "Rabbit": 90
     "Mouse": 90
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
     "Duck": 80
-    "Caterpillar": 0
-    "Plant": 0
+#    "Caterpillar": 0
+#    "Plant": 0
   "Horse":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
-    "Caterpillar": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
+#    "Caterpillar": 0
     "Plant": 100
   "Deer":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
-    "Caterpillar": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
+#    "Caterpillar": 0
     "Plant": 100
   "Rabbit":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
-    "Caterpillar": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
+#    "Caterpillar": 0
     "Plant": 100
   "Mouse":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
     "Caterpillar": 90
     "Plant": 100
   "Goat":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
-    "Caterpillar": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
+#    "Caterpillar": 0
     "Plant": 100
   "Sheep":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
-    "Caterpillar": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
+#    "Caterpillar": 0
     "Plant": 100
   "Boar":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Buffalo": 0
-    "Duck": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+    "Mouse": 90
+#    "Goat": 0
+#    "Sheep": 0
+#    "Buffalo": 0
+#    "Duck": 0
     "Caterpillar": 90
     "Plant": 100
   "Buffalo":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Duck": 0
-    "Caterpillar": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Duck": 0
+#    "Caterpillar": 0
     "Plant": 100
   "Duck":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
     "Caterpillar": 90
     "Plant": 100
   "Caterpillar":
-    "Wolf": 0
-    "Boa": 0
-    "Fox": 0
-    "Bear": 0
-    "Eagle": 0
-    "Horse": 0
-    "Deer": 0
-    "Rabbit": 0
-    "Mouse": 0
-    "Goat": 0
-    "Sheep": 0
-    "Boar": 0
-    "Buffalo": 0
-    "Duck": 0
+#    "Wolf": 0
+#    "Boa": 0
+#    "Fox": 0
+#    "Bear": 0
+#    "Eagle": 0
+#    "Horse": 0
+#    "Deer": 0
+#    "Rabbit": 0
+#    "Mouse": 0
+#    "Goat": 0
+#    "Sheep": 0
+#    "Boar": 0
+#    "Buffalo": 0
+#    "Duck": 0
     "Plant": 100
 organismsCommonSpecs:
   "Wolf":
