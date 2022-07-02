@@ -1,1 +1,3 @@
-JRU project 2
+ОСТРОВ
+Второй проект JavaRush University
+
