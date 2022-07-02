@@ -6,10 +6,10 @@ import ru.javarush.island.volokitin.entities.organisms.OrganismsCommonSpecs;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Settings {
     private static final String INIT_FILE = "init.yml";
@@ -19,13 +19,16 @@ public class Settings {
     private int mapCols;
     private int cycleDuration; // millis
     private Map<String, Integer> organismsInitialQuantity;
-    private Boolean stopIfAllAnimalsDead;
-    private Boolean stopIfTimeIsOver;
+    private Boolean stopOnTimeout;
     private int gameDuration;
     private Map<String, Integer> organismsChildrenQuantity;
     private Map<String, Map<String, Integer>> chanceToGetEat;
     private Map<String, OrganismsCommonSpecs> organismsCommonSpecs;
     private List<String> organismsTypes;
+    private int initialBirthPercent;
+    private int unviableWeightPercent;
+    private int animalGrowUpPercent;
+    private int plantGrowUpPercent;
 
     private Settings() {
         try {
@@ -35,9 +38,9 @@ public class Settings {
                 objectReader.readValue(resource.openStream());
             }
 
-            organismsTypes = organismsCommonSpecs.keySet().stream().collect(Collectors.toList());
+            organismsTypes = new ArrayList<>(organismsCommonSpecs.keySet());
         } catch (IOException e) {
-            System.out.printf("Ошибка при чтении файла настроек init.yml: %s", e.toString());
+            System.out.printf("Ошибка при чтении файла настроек init.yml: %s", e);
         }
     }
 
@@ -57,12 +60,8 @@ public class Settings {
         return cycleDuration;
     }
 
-    public Boolean getStopIfAllAnimalsDead() {
-        return stopIfAllAnimalsDead;
-    }
-
-    public Boolean getStopIfTimeIsOver() {
-        return stopIfTimeIsOver;
+    public Boolean getStopOnTimeout() {
+        return stopOnTimeout;
     }
 
     public int getGameDuration() {
@@ -78,7 +77,7 @@ public class Settings {
     }
 
     public Map<String, OrganismsCommonSpecs> getOrganismsCommonSpecs() {
-        return this.organismsCommonSpecs;
+        return organismsCommonSpecs;
     }
 
     public List<String> getOrganismsTypes() {
@@ -87,6 +86,22 @@ public class Settings {
 
     public OrganismsCommonSpecs getOrganismCommonSpecsByType(String organismType) {
         return organismsCommonSpecs.get(organismType);
+    }
+
+    public int getInitialBirthPercent() {
+        return initialBirthPercent;
+    }
+
+    public int getUnviableWeightPercent() {
+        return unviableWeightPercent;
+    }
+
+    public int getAnimalGrowUpPercent() {
+        return animalGrowUpPercent;
+    }
+
+    public int getPlantGrowUpPercent() {
+        return plantGrowUpPercent;
     }
 
     public static Settings get() {

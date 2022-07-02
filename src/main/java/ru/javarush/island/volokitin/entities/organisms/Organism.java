@@ -1,5 +1,6 @@
 package ru.javarush.island.volokitin.entities.organisms;
 
+import ru.javarush.island.volokitin.entities.organisms.animals.Animal;
 import ru.javarush.island.volokitin.entities.settings.Settings;
 import ru.javarush.island.volokitin.entities.world.Area;
 import ru.javarush.island.volokitin.util.Randomizer;
@@ -9,6 +10,7 @@ public abstract class Organism {
     private double weight;
 
     public abstract void multiply(Area area);
+    public abstract void growUp(Area area);
 
     protected Organism() {
         OrganismsCommonSpecs organismCommonSpecs = Settings.get().getOrganismCommonSpecsByType(this.type);
@@ -27,15 +29,38 @@ public abstract class Organism {
         this.weight = weight;
     }
 
-    public int getChildrenQuantity() {
+    public int getChildrenQuantity(Area area) {
         Settings settings = Settings.get();
         Integer childrenQuantity = settings.getOrganismsChildrenQuantity().get(getType());
-        OrganismsCommonSpecs commonSpecs = settings.getOrganismCommonSpecsByType(getType());
+        int maxQuantityInArea = settings.getOrganismCommonSpecsByType(getType()).getMaxQuantity();
+        int newBornQuantity =  Randomizer.getRandom(0, Math.min(childrenQuantity, maxQuantityInArea));
+        int sameOrganismTypeQuantity = area.getInhabitants().get(this.getType()).toArray().length;
 
-        return Randomizer.getRandom(0, Math.min(childrenQuantity, commonSpecs.getMaxQuantity()));
+        return Math.min(maxQuantityInArea - sameOrganismTypeQuantity, newBornQuantity);
     }
 
-    protected void growUp(Area area) {
+    public void starve(Area area) {
+        safeStarve(area);
+    }
 
+    private void safeStarve(Area area) {
+        area.getLock().lock();
+        try {
+            OrganismsCommonSpecs organismCommonSpecs = Settings.get().getOrganismCommonSpecsByType(this.getType());
+            int weightLossPercent;
+            if (this instanceof Animal) {
+                weightLossPercent = 20;
+            } else {
+                weightLossPercent = 1;
+            }
+
+            double weightLoss = organismCommonSpecs.getMaxWeight() * weightLossPercent / 100;
+            this.setWeight(this.getWeight() - weightLoss);
+            if (this.getWeight() < organismCommonSpecs.getMaxWeight() * 0.3) {
+                area.getInhabitants().get(this.getType()).remove(this);
+            }
+        } finally {
+            area.getLock().unlock();
+        }
     }
 }

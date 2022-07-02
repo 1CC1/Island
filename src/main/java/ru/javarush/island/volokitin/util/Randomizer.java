@@ -8,10 +8,10 @@ public class Randomizer {
     }
 
     public static int getRandom(int from, int to) {
-        return ThreadLocalRandom.current().nextInt(from, to);
+        return ThreadLocalRandom.current().nextInt(from, to + 1);
     }
 
     public static double getRandom(double from, double to) {
-        return ThreadLocalRandom.current().nextDouble(from, to);
+        return ThreadLocalRandom.current().nextDouble(from, to + 1D);
     }
 }

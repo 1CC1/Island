@@ -29,15 +29,18 @@ public class WorldCreator {
     }
 
     private Area createRandomArea() {
+        Settings settings = Settings.get();
+        Map<String, Integer> organismsInitialQuantityMap = settings.getOrganismsInitialQuantity();
+        int initialBirthPercent = settings.getInitialBirthPercent();
         Map<String, Set<Organism>> inhabitants = new HashMap<>();
 
-        for (Map.Entry<String, Integer> entry : Settings.get().getOrganismsInitialQuantity().entrySet()) {
+        for (Map.Entry<String, Integer> entry : organismsInitialQuantityMap.entrySet()) {
             String organismType = entry.getKey();
             Integer organismQuantity = entry.getValue();
 
             Set<Organism> organismSet = new HashSet<>();
             for (int i = 0; i < organismQuantity; i++) {
-                if (Randomizer.getProbability(25)) {
+                if (Randomizer.getProbability(initialBirthPercent)) {
                     organismSet.add(Factories.createOrganismByType(organismType));
                 }
             }

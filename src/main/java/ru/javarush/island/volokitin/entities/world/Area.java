@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
 
 public class Area {
     private Map<String, Set<Organism>> inhabitants;
@@ -41,11 +40,12 @@ public class Area {
     public String toString() {
         HashMap<String, Long> areaStatistics = new HashMap<>();
 
-        inhabitants.entrySet().stream()
+
+        inhabitants.entrySet()
                 .forEach(entry -> {
                     OrganismsCommonSpecs organismCommonSpecs = Settings.get().getOrganismCommonSpecsByType(entry.getKey());
                     String icon = organismCommonSpecs.getIcon();
-                    long count = entry.getValue().stream().count();
+                    long count = entry.getValue().size();
                     areaStatistics.put(icon, count);
                 });
 

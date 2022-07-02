@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Factories {
     private static volatile Factories FACTORIES;
-    private Map<String, OrganismFactory> factoriesMap;
+    private final Map<String, OrganismFactory> factoriesMap;
 
     private Factories() {
         factoriesMap = new HashMap<>();

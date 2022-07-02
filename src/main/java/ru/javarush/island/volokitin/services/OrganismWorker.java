@@ -20,8 +20,6 @@ public class OrganismWorker implements Runnable {
 
     @Override
     public void run() {
-        Thread.currentThread().setName(Thread.currentThread().getName().replace("thread", organismType)); // TODO - delete
-
         Area[][] areas = world.getAreas();
         for (Area[] rows : areas) {
             for (Area area : rows) {

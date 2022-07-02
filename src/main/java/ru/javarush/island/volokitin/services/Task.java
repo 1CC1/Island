@@ -15,13 +15,15 @@ public class Task {
 
     public void perform() {
         if(organism instanceof Animal animal){
-//            animal.move(area);
-//            animal.eat(area);
+            if (animal.eat(area)){
+                animal.growUp(area);
+                animal.multiply(area);
+            }
+            animal.move(area);
+        } else {
+            organism.growUp(area);
+            organism.multiply(area);
         }
-        organism.multiply(area);
-        // TODO - some everyday routine
-        // this.growUp(area);
-        // lose weight
-        // accidental death
+        organism.starve(area);
     }
 }

@@ -12,48 +12,24 @@ public class OrganismsCommonSpecs {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getIcon() {
         return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 
     public double getMaxWeight() {
         return maxWeight;
     }
 
-    public void setMaxWeight(double maxWeight) {
-        this.maxWeight = maxWeight;
-    }
-
     public int getMaxQuantity() {
         return maxQuantity;
-    }
-
-    public void setMaxQuantity(int maxQuantity) {
-        this.maxQuantity = maxQuantity;
     }
 
     public int getMaxSpeed() {
         return maxSpeed;
     }
 
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
     public float getMaxFoodRequired() {
         return maxFoodRequired;
-    }
-
-    public void setMaxFoodRequired(float maxFoodRequired) {
-        this.maxFoodRequired = maxFoodRequired;
     }
 
     public OrganismsCommonSpecs() {

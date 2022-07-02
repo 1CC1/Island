@@ -17,17 +17,17 @@ public abstract class Animal extends Organism {
 
     @Override
     public void multiply(Area area) {
-//        safeMultiply(area);
+        safeMultiply(area);
     }
 
     private void safeMultiply(Area area) {
         area.getLock().lock();
         try {
             int sameAnimalTypeQuantity = area.getInhabitants().get(this.getType()).toArray().length;
-            int newPlantsQuantity = this.getChildrenQuantity();
+            int childrenQuantity = this.getChildrenQuantity(area);
 
-            if (newPlantsQuantity > 0 && sameAnimalTypeQuantity > 0 && Randomizer.getProbability(50)) {
-                for (int i = 0; i < newPlantsQuantity; i++) {
+            if (childrenQuantity > 0 && sameAnimalTypeQuantity > 1 && Randomizer.getProbability(50)) {
+                for (int i = 0; i < childrenQuantity; i++) {
                     if (Randomizer.getProbability(90)) {
                         Organism newAnimal = Factories.createOrganismByType(this.getType());
                         area.addInhabitant(this.getType(), newAnimal);
@@ -35,14 +35,12 @@ public abstract class Animal extends Organism {
                 }
             }
         } finally {
-            area.getLock().lock();
+            area.getLock().unlock();
         }
     }
 
-    public void eat(Area area) {
-        if (safeEat(area)) {
-
-        }
+    public boolean eat(Area area) {
+        return safeEat(area);
     }
 
     private boolean safeEat(Area area) {
@@ -68,12 +66,14 @@ public abstract class Animal extends Organism {
                         Iterator<Organism> foodIterator = foodSet.iterator();
                         if (foodIterator.hasNext()) {
                             Organism food = foodIterator.next();
-                            double mealWeight = Math.min(foodRequired, food.getWeight());
+                            double initialFoodWeight = food.getWeight();
+                            double mealWeight = Math.min(foodRequired, initialFoodWeight);
                             foodRequired -= mealWeight;
                             setWeight(getWeight() + mealWeight);
                             food.setWeight(food.getWeight() - mealWeight);
 
-                            if (food.getWeight() < 0) { // съели целиком
+                            double currentFoodWeight = food.getWeight();
+                            if (currentFoodWeight < initialFoodWeight / settings.getUnviableWeightPercent()) { // съели целиком или до нежизнеспособного состояния
                                 foodIterator.remove();
                             }
 
@@ -89,9 +89,61 @@ public abstract class Animal extends Organism {
             area.getLock().unlock();
         }
 
-        return ate; //TODO - delete
+        return ate;
+    }
+
+    public void growUp(Area area) {
+        safeGrowUp(area);
+    }
+
+    private void safeGrowUp(Area area) {
+        area.getLock().lock();
+        try {
+            int growUpPercent = Settings.get().getAnimalGrowUpPercent();
+            double weightIncrement = this.getWeight() * growUpPercent / 100;
+            this.setWeight(this.getWeight() + weightIncrement);
+        } finally {
+            area.getLock().unlock();
+        }
     }
 
     public void move(Area area) {
+        safeMove(area);
+    }
+
+    private void safeMove(Area currentArea) {
+        currentArea.getLock().lock();
+        try {
+            int speed = getSpeed();
+            if (speed > 0) {
+                Area destinationArea = getNextArea(currentArea, speed);
+                Set<Organism> currentAreaOrganisms = currentArea.getInhabitants().get(this.getType());
+                currentAreaOrganisms.remove(this);
+
+                Set<Organism> destinationAreaOrganisms = destinationArea.getInhabitants().get(this.getType());
+                destinationAreaOrganisms.add(this);
+            }
+        } finally {
+            currentArea.getLock().unlock();
+        }
+    }
+
+    private int getSpeed() {
+        int maxSpeed = Settings.get().getOrganismCommonSpecsByType(this.getType()).getMaxSpeed();
+        return Randomizer.getRandom(0, maxSpeed);
+    }
+
+    private Area getNextArea(Area currentArea, int currentSpeed) {
+        List<Area> nearestAreas = currentArea.getNearestAreas();
+        if (currentSpeed > 0) {
+            int nextAreaIndex = Randomizer.getRandom(0, nearestAreas.size());
+            if (nextAreaIndex == 0) {
+                return getNextArea(currentArea, currentSpeed - 1);
+            } else {
+                return getNextArea(nearestAreas.get(nextAreaIndex - 1), currentSpeed - 1);
+            }
+        } else {
+            return currentArea;
+        }
     }
 }
