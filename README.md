@@ -15,7 +15,7 @@ plantGrowUpPercent - процент ежедневного роста расте
 organismsInitialQuantity - количество организмов при первоначальном заполнении области игрового поля<br>
 organismsChildrenQuantity - количество потомков организмов<br>
 chanceToGetEat - карта шансов организма съесть другой организм<br>
-organismsCommonSpecs - общие настройки организмов^
+organismsCommonSpecs - общие настройки организмов:
 <ul>
 <li>имя</li>
 <li>иконка</li>
